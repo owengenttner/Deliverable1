@@ -1,54 +1,34 @@
-                 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * A class that models playing card Objects. Cards have 
- * a value (note that Ace = 1, Jack -11, Queen =12, King = 13)
- * A suit (clubs, hearts, spades, diamonds).
- * There are 52 cards in a deck, no jokers.
- * This code is to be used in ICE1. When you create your own branch,
- * add your name as a modifier.
- * @author Owen Genttner 
- * Date: 2021 02 10
- */
 public class Card {
+    private int cardNum;
+    final static String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
+    final static String[] ranks = {"2", "3","4","5","6","7","8", "9","10", "Jack", "Queen", "King", "Ace"};
 
-   private String suit; //clubs, spades, diamonds, hearts
-   private int value;//1-13
+    Card (int theCard) {
+        setCardNum (theCard);
+    }
 
-   public static final String [] SUITS = {"Hearts", "Diamonds", "Spades", "Clubs"};
-    /**
-     * @return the suit
-     */
+    public void setCardNum (int theCard) {
+        cardNum = (theCard >= 0 && theCard <= 51)? theCard: 0;
+    }
+
+    public int getCardNum() {
+        return cardNum;
+    }
+
+    public String toString() {
+        return ranks[cardNum%13] + " of " + suits[cardNum/13];
+    }
+
     public String getSuit() {
-        return suit;
+        return suits[cardNum/13];
     }
 
-    /**
-     * @param suit the suit to set
-     */
-    public void setSuit(String suit) {
-        this.suit = suit;
+    public String getRank() {
+        return ranks[cardNum%13];
     }
 
-    /**
-     * @return the value
-     */
     public int getValue() {
-        return value;
+        return cardNum%13;
     }
-
-    /**
-     * @param value the value to set
-     */
-    public void setValue(int value) {
-        this.value = value;
-    }
-   
-   
-    
 }
 
