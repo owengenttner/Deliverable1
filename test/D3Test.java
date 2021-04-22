@@ -31,8 +31,6 @@ public class D3Test {
             win = true;
         } return win;
     }
-    
-    //Wouldn't run with the @Test above
     @Test
     public void testCardSelectorDeny() {
         System.out.println("Card Selected");
